@@ -27,7 +27,7 @@ resource "google_storage_bucket" "this" {
   }
 
   dynamic "lifecycle_rule" {
-    for_each = var.lifecycle_rules
+    for_each = coalesce(var.lifecycle_rules, [])
     content {
       action {
         type          = lifecycle_rule.value.action["type"]
