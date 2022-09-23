@@ -12,12 +12,11 @@ $ terraform state rm module.default-bucket.google_logging_project_bucket_config.
 
 provider "google" {
   project = var.project
-  # Region and location are not the same but let's pretend ;)
-  region = var.location
 }
 
 module "default-bucket" {
   source         = "../../modules/log-bucket"
+  project        = var.project
   location       = "global"
   id             = "_Default"
   retention_days = 30

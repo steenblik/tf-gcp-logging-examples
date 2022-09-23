@@ -8,6 +8,7 @@ module "bucket" {
   source   = "../../modules/log-bucket"
   location = var.location
   id       = "${var.location}-default"
+  project = var.project
 }
 
 /*
